@@ -1,0 +1,30 @@
+ALGORITHM produit_scalaire_fct
+VAR
+    v1,v2,ps : ARRAY_OF INTEGER[10];
+   
+BEGIN
+ IF (length(v1) <> length(v2)) THEN
+     write ("les 2 vecteurs non orthogonaux ")
+     ELSE
+     //     appel au Fonction qui va calculer le produit scalaire
+     ps:= function dot_product(v1,v2);
+
+     IF (ps=0) THEN
+            write ("les 2 vecteurs sont orthogonaux")
+            ELSE
+            write ("les 2 vecteurs non orthogonaux") ;
+        END_IF
+ END_IF
+     // fonction pour le calcul de produit scalaire des 2 vecteurs
+
+    FUNCTION dot_product(v1,V2: ARRAY_OF INTEGER) : INTEGER
+    VAR
+        i,resultat: INTEGER;
+    BEGIN
+        FOR i FROM 1 TO (length(v1)-1) STEP 1  DO
+           resultat:=resultat + v1[i]*v2[i]
+        END_FOR
+        RETURN resultat ;
+    END
+    
+END
